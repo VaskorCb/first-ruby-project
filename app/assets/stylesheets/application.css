@@ -13,3 +13,91 @@
  *= require_tree .
  *= require_self
  */
+
+/* Sticky Footer Classes */
+
+html,
+body {
+    height: 100%;
+}
+
+#page-content {
+    flex: 1 0 auto;
+}
+
+
+.blog-homepage {
+    background-image: url("wave-particles-blue-dots-background-vector-38972377.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 420px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+}
+
+#formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 20px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    /* text-align: center; */
+}
+
+.second {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 100%;
+    border: 2px solid #f6f6f6;
+}
+
+.fourth {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 100%;
+    border: 2px solid #f6f6f6;
+    font-weight: 900;
+}
+
+.font-weight-bold {
+    font-weight: 800;
+}
+
+.main-wrapper {
+    /* display: flex; */
+    text-align: center;
+    align-items: center;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    width: 100%;
+    /* min-height: 100%; */
+    /* padding: 20px; */
+}
