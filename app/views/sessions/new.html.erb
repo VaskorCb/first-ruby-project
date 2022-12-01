@@ -1,0 +1,32 @@
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
+
+<%= form_with(scope: :session ,url:login_path) do |form| %>
+  
+  <div class="wrapper">
+ <div id="formContent">
+ 
+  <div>
+    <%= form.label :email, class:"font-weight-bold", style: "display:block" %>
+    <%= form.email_field :email, class:" second", placeholder:"Enter your email address"%>
+  </div>
+   <div>
+    <%= form.label :password, class:"font-weight-bold", style: "display:block" %>
+    <%= form.password_field :password, class:" second", placeholder:"Enter your passord"%>
+  </div>
+  
+  <div>
+    <%= form.submit "Log in", class:"fourth " %>
+  </div>
+  
+      
+  </div>
+</div>
+
+  
+
+<% end %>
+

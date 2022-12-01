@@ -1,0 +1,12 @@
+  <div class="container">
+  <h3 class="text-danger text-center p-3">All of our articles are here</h3>
+  <% obj.each do |article| %>
+  <%= render "articles/article", article:article%>
+   
+  <% end %>
+  <%= link_to "New article", new_article_path %>
+  </div>
+  
+</div>
+
+

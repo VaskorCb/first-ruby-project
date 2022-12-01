@@ -1,13 +1,20 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :require_user, only: [ :edit ,:update]
+  before_action :require_same_user, only: [:edit, :update ]
 
   # GET /users or /users.json
   def index
-    @users = User.all
+
+    @users =User.paginate(page: params[:page], per_page: 2)
+
   end
 
   # GET /users/1 or /users/1.json
   def show
+  
+    @articles=User.paginate(page: params[:page],per_page:2)
+    
   end
 
   # GET /users/new
@@ -25,6 +32,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id]=@user.id
+        # print @user.password
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -50,6 +59,7 @@ class UsersController < ApplicationController
   # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy
+    session[:user_id]=nil
 
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
@@ -65,6 +75,13 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username)
+      params.require(:user).permit(:username, :email, :password)
+    end
+
+    def require_same_user
+      if current_user!=@user
+        flash[:alert]="You can only edit your own account"
+        redirect_to login_path
+      end
     end
 end

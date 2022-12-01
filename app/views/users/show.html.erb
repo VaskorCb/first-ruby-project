@@ -1,10 +1,6 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @user %>
-
 <div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
+<h2 class="text-danger text-uppercase text-center "><%= @user.username %> Profile</h2>
+<h4 class="text-success text-center"><%= @user.articles.count %> Articles</h4>
+<%= render 'articles/allArticles', obj: @user.articles  %>
 </div>

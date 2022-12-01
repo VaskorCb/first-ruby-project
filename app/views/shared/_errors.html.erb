@@ -1,10 +1,10 @@
-<% if @article.errors.any? %>
+<% if obj.errors.any? %>
     <div class="alert alert-danger" role="alert">
-    <h4 class="alert-heading">The following errors prevented the article from being saved</h4>
+    <h4 class="alert-heading">The following errors prevented the <%= obj.class.name.downcase %> from being saved</h4>
     <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
     <hr>
     <ul>
-        <% @article.errors.full_messages.each do |msg| %>
+        <% obj.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
         <% end %>
     </ul>

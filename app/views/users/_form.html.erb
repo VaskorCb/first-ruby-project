@@ -1,22 +1,30 @@
 <%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
+  <%= render 'shared/errors', obj: @user %>
+  <div class="wrapper">
+ <div id="formContent">
+ <div class="d-flex justify-content-center flex-column">
+    <%= form.label :username, class:"font-weight-bold", style: "display: inline-block " %>
+    <%= form.text_field :username ,class:" second", placeholder:"Enter the usename" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label :email, class:"font-weight-bold", style: "display:block" %>
+    <%= form.email_field :email, class:" second", placeholder:"Enter your email address"%>
   </div>
+   <div>
+    <%= form.label :password, class:"font-weight-bold", style: "display:block" %>
+    <%= form.password_field :password, class:" second", placeholder:"Enter your passord"%>
+  </div>
+  
+  <div>
+    <%= form.submit(@user.new_record? ? "Sign up" : "Update account", class:"fourth ") %>
+  </div>
+  
+      
+  </div>
+</div>
+
+  
+
 <% end %>
+

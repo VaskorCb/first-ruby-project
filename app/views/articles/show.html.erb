@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @article %>
+<%= render @article ,obj:@article %>
+
 
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
